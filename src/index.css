@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background: linear-gradient(to bottom right, #fbd7b2, #fce9cf, #fad3b4, #fdebcc);
+  background: linear-gradient(to bottom right, #e6bbba, #efd7d7, #ebc7c7, #d79b99);
+  background: linear-gradient(to bottom left, #e6bbba, #efd7d7, #ebc7c7, #d79b99);
   height: 100vh;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-position:
