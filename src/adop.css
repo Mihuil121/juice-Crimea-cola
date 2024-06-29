@@ -1,0 +1,104 @@
+@media(max-width:1539px) {
+    .PColaText {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        margin-left: 4rem;
+    }
+    .scroll-pilot-indicator {
+        margin-top: 2rem;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-90%);
+        width: 80%;
+    }
+    .ColaImage {
+        width: 45rem;
+    }
+}
+
+@media(max-width:1473px) {
+    .PColaText {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        margin-right: -12rem;
+    }
+}
+
+@media(max-width:1267px) {
+    .PColaText {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        margin-right: -15rem;
+    }
+    .slider {
+        display: flex;
+        justify-content: center;
+        margin-top: 10vw;
+        margin-bottom: 4rem;
+    }
+    .scroll-pilot-indicator {
+        margin-top: 6rem;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-90%);
+        width: 80%;
+    }
+    .ColaImage {
+        width: 40rem;
+    }
+}
+
+@media(max-width:1235px) {
+    .colaH1 {
+        width: 28rem;
+        font-size: 2.5rem;
+        font-family: "Lexend", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+    .PColaText {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        margin-right: -5rem;
+    }
+}
+
+@media(max-width:1109px) {
+    .slider {
+        display: flex;
+        justify-content: center;
+        margin-top: 30vw;
+        margin-bottom: 4rem;
+    }
+    .ColaImage {
+        width: 35rem;
+    }
+    .scroll-pilot-indicator {
+        margin-top: 15rem;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-90%);
+        width: 100%;
+    }
+}

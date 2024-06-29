@@ -1,0 +1,40 @@
+.slider {
+    display: flex;
+    justify-content: center;
+    margin-top: 7rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideIn 1s forwards;
+}
+
+.imageSlid {
+    width: 9rem;
+}
+
+.index {
+
+    border: 1px solid #ffffff;
+    border-radius: 2rem;
+    margin: 1rem;
+    transition: 0.2s;
+}
+
+.index:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    font-size: 1.2rem;
+}
+
+.textSlider {
+    text-align: left;
+    margin-right: 1rem;
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ml{
+    font-weight: 200;
+}

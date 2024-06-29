@@ -13,15 +13,15 @@ export const ColaImage:ICola[] = [
     }
 ]
 
-interface ColaT{
+export interface ColaT{
     text:string
 }
 
 export const ColaText:ColaT[]=[
     {
-        text:`Refreshing Cola Taste Relax and enjoy!`
+        text:`Refreshing Cola Taste Relax and Enjoy!`
     },
     {
-        text:`Black Sea zest in Crimean Cola!`
+        text:`Black Sea Zest in Crimean Cola!`
     }
 ]
