@@ -1,0 +1,45 @@
+.Bascet {
+    width: 40rem;
+    backdrop-filter: blur(5rem);
+    border: 1px solid #000000;
+    border-radius: 1rem;
+
+}
+
+.fact {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+
+.StyleBasc {
+    font-size: 2rem;
+    font-family: "Karla", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.BascetText {
+    font-size: 2rem;
+}
+
+.BuyBascet {
+    width: 10rem;
+    height: 2rem;
+    background: #f88484;
+    border: none;
+    border-radius: 15rem;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    transition: 0.5s;
+}
+.BuyBascet:hover{
+    transform: translate(1rem);
+}

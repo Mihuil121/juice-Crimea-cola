@@ -8,23 +8,17 @@ import { config } from './seting.js';
 import { Link, Element } from 'react-scroll';
 import { Fade } from "react-awesome-reveal";
 import styled, { createGlobalStyle, DefaultTheme } from 'styled-components';
+import Shop from './shop/Shop.tsx'
+
 
 type TColaBody = ICola & ColaT & ColaIImg & DefaultTheme;
 
 const ColaBody: React.FC<TColaBody> = () => {
     const [useId, setUserId] = useState<number | null>(null);
+    const [click, handerClick] = useState<number>(1)
+    const [mision, setMision] = useState<React.ReactNode>(null)
 
-    const handerClock = (index: number) => {
-        setUserId(index);
-    };
 
-    function ColaCola(useId: number | null) {
-        if (useId === null) {
-            return ColaImage[0].img;
-        } else {
-            return colaImg2[useId].PhotoCola;
-        }
-    }
 
     let GlobalStyle = createGlobalStyle`
         body {
@@ -57,6 +51,30 @@ const ColaBody: React.FC<TColaBody> = () => {
 
     const img: string = ColaCola(useId);
 
+    function ShopClick() {
+        handerClick(click + 1)
+
+        if (click % 2 === 0) {
+            setMision('')
+        }
+        else {
+            setMision( <Shop useId={useId} />)
+        }
+
+    }
+    const handerClock = (index: number) => {
+        setUserId(index);
+  
+    };
+
+    function ColaCola(useId: number | null) {
+        if (useId === null) {
+            return ColaImage[0].img;
+        } else {
+            return colaImg2[useId].PhotoCola;
+        }
+    }
+
     return (
         <div>
             <div className="cola3d">
@@ -71,7 +89,7 @@ const ColaBody: React.FC<TColaBody> = () => {
                             <div className="shopm">
                                 <p key={index} className={index === 1 ? 'colaH1' : 'cola'}>{text.text}</p>
                                 <div className="sop">
-                                    <button className='Shop'>Shop Now</button>
+                                    <button className='Shop' onClick={ShopClick}>Shop Now</button>
                                     <button className='Learm'>Learn More</button>
                                 </div>
                             </div>
@@ -91,6 +109,7 @@ const ColaBody: React.FC<TColaBody> = () => {
                     <Slider slids={Slid} onSlideClick={handerClock} />
                 </Fade>
             </Element>
+            {mision}
             <GlobalStyle />
         </div>
     );
