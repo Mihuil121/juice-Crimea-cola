@@ -7,18 +7,16 @@ import { ScrollPilot } from 'scroll-pilot';
 import { config } from './seting.js';
 import { Link, Element } from 'react-scroll';
 import { Fade } from "react-awesome-reveal";
-import styled, { createGlobalStyle, DefaultTheme } from 'styled-components';
-import Shop from './shop/Shop.tsx'
-
+import styled, { createGlobalStyle, DefaultTheme, css } from 'styled-components';
+import Shop from './shop/Shop.tsx';
 
 type TColaBody = ICola & ColaT & ColaIImg & DefaultTheme;
 
 const ColaBody: React.FC<TColaBody> = () => {
     const [useId, setUserId] = useState<number | null>(null);
-    const [click, handerClick] = useState<number>(1)
-    const [mision, setMision] = useState<React.ReactNode>(null)
-
-
+    const [click, setClick] = useState<number>(1);
+    const [mision, setMision] = useState<React.ReactNode>(null);
+    const [animationEnabled, setAnimationEnabled] = useState<boolean>(true);
 
     let GlobalStyle = createGlobalStyle`
         body {
@@ -39,46 +37,52 @@ const ColaBody: React.FC<TColaBody> = () => {
         }
     `;
 
-    const ColaImageWrapper = styled.div`
+    const ColaImageWrapper = styled.div<{ animationEnabled: boolean }>`
         img {
-            transition: opacity 0.5s ease-in-out;
+            ${({ animationEnabled }) => animationEnabled
+            ? css`transition: opacity 0.5s ease-in-out;`
+            : css`transition: none;`
+        }
         }
     `;
 
-    const TextWrapper = styled.div`
-        transition: opacity 0.5s ease-in-out;
+    const TextWrapper = styled.div<{ animationEnabled: boolean }>`
+        ${({ animationEnabled }) => animationEnabled
+            ? css`transition: opacity 0.5s ease-in-out;`
+            : css`transition: none;`
+        }
     `;
 
-    const img: string = ColaCola(useId);
-
-    function ShopClick() {
-        handerClick(click + 1)
-
-        if (click % 2 === 0) {
-            setMision('')
-        }
-        else {
-            setMision( <Shop useId={useId} />)
-        }
-
-    }
-    const handerClock = (index: number) => {
-        setUserId(index);
-  
-    };
-
-    function ColaCola(useId: number | null) {
+    const ColaCola = (useId: number | null) => {
         if (useId === null) {
             return ColaImage[0].img;
         } else {
             return colaImg2[useId].PhotoCola;
         }
-    }
+    };
+
+    const handerClock = (index: number|null) => {
+        setUserId(index);
+        setAnimationEnabled(true);
+        setMision('');
+        setClick(1)
+    };
+
+    const ShopClick = () => {
+        setClick(click + 1);
+
+        if (click % 2 === 0) {
+            setMision('');
+        } else {
+            setAnimationEnabled(false);
+            setMision(<Shop useId={useId}  onSlideClick={handerClock}/>);
+        }
+    };
 
     return (
         <div>
-            <div className="cola3d">
-                <TextWrapper >
+            <div className={`cola3d ${animationEnabled ? '' : 'no-animation'}`}>
+                <TextWrapper animationEnabled={animationEnabled}>
                     <div className="PColaText">
                         {ColaText.map((text: { text: string }, index) => index === 0 ? (
                             <div key={index} className="textWithImage" style={{ display: 'flex' }}>
@@ -96,8 +100,8 @@ const ColaBody: React.FC<TColaBody> = () => {
                         ))}
                     </div>
                 </TextWrapper>
-                <ColaImageWrapper>
-                    <img className='ColaImage' src={img} alt="Cola" />
+                <ColaImageWrapper animationEnabled={animationEnabled}>
+                    <img className='ColaImage' src={ColaCola(useId)} alt="Cola" />
                 </ColaImageWrapper>
             </div>
             <Link to='sliderse' smooth={true} duration={500} className="scroll-pilot-indicator">
@@ -113,6 +117,6 @@ const ColaBody: React.FC<TColaBody> = () => {
             <GlobalStyle />
         </div>
     );
-}
+};
 
 export default ColaBody;

@@ -1,45 +1,145 @@
-.Bascet {
-    width: 40rem;
-    backdrop-filter: blur(5rem);
-    border: 1px solid #000000;
-    border-radius: 1rem;
-
-}
-
-.fact {
+.wrapper {
     display: flex;
     justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-}
-
-
-.StyleBasc {
-    font-size: 2rem;
-    font-family: "Karla", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.BascetText {
-    font-size: 2rem;
-}
-
-.BuyBascet {
-    width: 10rem;
-    height: 2rem;
-    background: #f88484;
-    border: none;
-    border-radius: 15rem;
-    display: flex; 
-    justify-content: center; 
     align-items: center;
-    transition: 0.5s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
-.BuyBascet:hover{
-    transform: translate(1rem);
+
+.Bascet {
+    width: 40rem;
+    max-width: 90vw;
+
+    backdrop-filter: blur(10px);
+    border: 1px solid #e0e0e0;
+    
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0);
+    /* Start with scale 0 for grow effect */
+    animation: growIn 0.5s ease forwards;
+    /* Grow-in animation */
+    background-color: white;
+    /* Ensure backdrop-filter effect is visible */
+    pointer-events: auto;
+    /* Allow interaction with basket */
+    z-index: 9999;
+    /* Ensure basket is on top */
+}
+
+@keyframes growIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-out animation */
+.fadeOut {
+    animation: shrinkOut 0.5s ease forwards;
+}
+
+@keyframes shrinkOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Title and icons styling */
+.StyleBasc {
+    font-size: 2.5rem;
+    font-family: "Karla", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    color: #333333;
+    /* Darker text color */
+}
+
+.StyleBasc img {
+    width: 2.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.StyleBasc img:hover {
+    transform: scale(1.1);
+    /* Scale up on hover */
+}
+
+/* Product details styling */
+.BascetText {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #555555;
+    /* Medium dark text color */
+}
+
+/* Buy button styling */
+.BuyBascet {
+    margin-top: 1rem;
+    width: 12rem;
+    height: 3.5rem;
+    background-color: #f88484;
+    border: none;
+    border-radius: 2rem;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BuyBascet:hover {
+    background-color: #e76d6d;
+    /* Darker color on hover */
+    transform: scale(1.05);
+    /* Scale up on hover */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+    .Bascet {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .StyleBasc {
+        font-size: 2rem;
+    }
+
+    .BascetText {
+        font-size: 1.6rem;
+    }
+
+    .BuyBascet {
+        width: 100%;
+    }
 }

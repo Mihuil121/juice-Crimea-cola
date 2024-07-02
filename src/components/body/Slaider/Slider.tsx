@@ -17,6 +17,7 @@ const Slider: React.FC<PropsIslids> = ({ slids, onSlideClick,  }) => {
                     <div className="index" key={index} style={{ display: 'flex', justifyContent: 'center', height: '10rem', alignItems: 'center' }}
                         onClick={() => {
                             onSlideClick(index)
+                         
                            
                         }} >
                         <img src={Slide.image} alt={Slide.text} className='imageSlid' />
