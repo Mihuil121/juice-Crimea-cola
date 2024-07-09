@@ -1,5 +1,5 @@
 /* Стили для больших экранов */
-@media (min-width: 2561px) {
+@media (min-width: 3561px) {
     .cola3d {
         display: flex;
         justify-content: flex-end;
